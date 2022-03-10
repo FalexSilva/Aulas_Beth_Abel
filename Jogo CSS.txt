@@ -1,0 +1,220 @@
+Exercício CSS DINER
+
+====== Level 1 e 2 ======
+
+<div class="table">	
+	<plate/>
+	<plate/>	
+</div>
+
+Objetivo: Selecionar os elementos pratos utilizando o Seletor de Tipo
+
+Seletor de Tipo: Seleciona todos os elementos de um tipo A.
+Por Tipo se quer dizer tipo de tag, assim <div>, <p> e <ul> são todos tipos diferentes de elementos.
+
+Exemplo:
+div seleciona todos os tipos de elementos <div>.
+p seleciona todos os tipos de elementos <p>.
+
+Solução:
+
+plate 
+
+
+====== Level 3 - SELETOR POR ID ======
+
+<div class="table">	
+	<plate id="fancy"/>
+	<plate/>	
+</div>
+
+Objetivo: Selecionar os elementos pratos utilizando o Seletor de Tipo
+
+Seletor de Tipo: 
+Seleciona o elemento que possui um id específico.
+É possível combinar o elemento id com o tipo.
+
+Exemplo:
+#cool seleciona o elemento com id="cool".
+ul#cool seleciona <ul id="long>
+
+
+Solução1:
+#fancy
+
+Solução2:
+plate#fancy 
+
+A referência do tipo de elemento neste caso é importante para facilitar a manutenção, visto
+que facilita a identificação do elemento a que o id está atribuído.
+
+
+
+====== Level 4 - SELETOR POR DESCENDENTE ======
+
+SELETOR DESCENDENTE:
+Seleciona um elemento dentro de outro elemento (dois tipos iguais ou diferentes aninhados)
+
+AB --> Seleciona todo B dentro de A. B é chamado de descendente porque está dentro (aninhado) de outro elemento, no caso o elemento A.
+
+Exemplos:
+p strong seleciona todos os elementos <strong> que estão dentro de qualquer <p>, ou seja, dentro de todos os <p> que tenham dentre deles
+o <strong>.
+
+#fancy span seleciona quaisquer elementos <span> que estejam contidos (dentro de) em um elemento que tenha o id"fancy".
+
+
+Objetivo: Selecionar a maça que está no prato.
+
+
+<div class="table">	
+	<bento/>
+	<plate>	
+		<apple/>	
+	<plate/>
+	<apple/>	
+</div>
+
+
+
+Exemplos:
+#cool seleciona o elemento com id="cool".
+ul#cool seleciona <ul id="long>
+
+
+Solução1 - Seletor Descendente:
+plate apple
+
+Solução2 - Pseudo-seletor:
+apple:first-child
+plate apple:only-child
+apple:only-child
+plate apple:last-child
+apple:last-child não é a resposta correta, pois irá se aplicar às duas <apple> que são last-child <div> <apple/> e <plate/><apple/>
+
+
+A referência do tipo de elemento neste caso é importante para facilitar a manutenção, visto
+que facilita a identificação do elemento a que o id está atribuído.
+
+
+====== Level 5 - Combinação dos Seletores Descendente e ID ======
+
+SELETOR DESCENDENTE:
+Seleciona um elemento dentro de outro elemento (dois tipos iguais ou diferentes aninhados)
+
+#id A --> É possível combinar qualquer seletor com um seletor descendente.
+
+Exemplos:
+#cool span seleciona todos os elementos <span> que estejam contidos dentro de um elemento com id="cool".
+
+
+Objetivo: Selecionar o pepiono no prato pintado.
+
+
+<div class="table">	
+	<bento>
+	<orange/>
+	</bento>
+	<plate id="fancy">
+		<pickle/>	
+	</plate>
+	<plate>
+		<pickle/>	
+	</plate>
+</div>
+
+Solução 1 - Usando #id A:
+1) #fancy pickle
+
+
+====== Level 6 - Seletor de Classe ======
+
+SELETOR DE CLASSE
+
+Seleciona um elemento pela sua classe.
+
+.nomedaclasse --> O seletor de classe seleciona todos os elementos com aquele atributo de classe.
+Os elementos podem ter apenas um ID, porém podem ter muitas classes.
+
+Exemplos:
+.neato seleciona todos os elementos com a class="neato"
+
+
+Objetivo: Selecionar a macãs pequenas.
+
+
+<div class="table">	
+	<apple />
+	<apple class="small">
+	<plate>
+		<apple class="small" />	
+	</plate>
+	<plate />
+</div>
+
+Solução 1 - Usando .classname:
+1) .small
+
+
+===== Level 7 - Combinação de Seletor de Classe ======
+
+A.ClassName --> Seleciona um elemento de um tipo específico pela sua classe.
+
+
+Exemplos:
+.neato seleciona todos os elementos com a class="neato"
+
+
+Objetivo: Selecionar a macãs pequenas.
+
+
+<div class="table">	
+	<apple />
+	<apple class="small">
+	<plate>
+		<apple class="small" />	
+	</plate>
+	<plate />
+</div>
+
+Solução 1 - Usando .classname:
+1) .small
+
+
+
+====== Level 37 =======
+<div class="table">
+	<plate id="fancy">
+		<apple class-"small"/>
+	</plate>
+<plate/>
+<plate>
+	<orange class="small">
+	<orange/>
+</plate>
+<pickle class="small">
+</div>
+
+Objetivo: selecionar a maçã pequena e o pepino usando o 
+pseudo-elemento :last-child.
+
+Pseudo-seletor :last-child> Seleciona o último elemento que está dentro de outro elemento
+
+Dica de Profissional: Nos casos em que existem apenas um elemento, este elemento é
+ao mesmo tempo fisrt:child, only-child e last-child!
+
+Solução usando Pseudo-elemento:
+apple:last-child, pickle:last-child
+
+Explicação:
+apple é o primeiro (first-child), único(only-child) e último(last-child) elemento contido no elemento<plate>
+
+plate apple:last-child pode ser utilizado, porém plate aqui fica redundante, uma vez que o pseudo-elemento já
+seleciona o elemento filho(child)
+
+Solução usando o Seletor de Classe:
+Visto que ambos os elementos filhos(child) possuem o atributo de classe small, é possível selecioná-los
+usando a combinação Seletor de elemento classe.
+
+Resposta:
+apple.small, pickle.small
